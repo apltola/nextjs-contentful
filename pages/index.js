@@ -4,7 +4,6 @@ import HeadingHero from '../components/hero/headingHero';
 import SplitHero from '../components/hero/splitHero';
 
 export default function Home({ artists }) {
-  console.log('artists --> ', artists);
   return (
     <Layout>
       <HeadingHero text="PROGRAM PICKS" />
@@ -25,7 +24,6 @@ export default function Home({ artists }) {
 }
 
 export async function getStaticProps(hmm) {
-  console.log('hmm --> ', hmm);
   const artists = (await getArtistsForHome()) ?? [];
 
   return {

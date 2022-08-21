@@ -16,21 +16,24 @@ const shouldShowPortait = (breakpoints) => {
   return !!breakpoints['2xl'];
 };
 
-export default function ArtistPage({
-  artist: { title, description, imageLandscape, imagePortrait },
-}) {
+// { title, description, imageLandscape, imagePortrait }
+export default function ArtistPage({ artist }) {
   const breakpoints = useDimensions();
 
+  if (!artist) {
+    return null;
+  }
+
   return (
-    <Layout title={title} ogImage={imageLandscape.url}>
+    <Layout title={artist.title} ogImage={artist.imageLandscape.url}>
       <div className="full-height flex flex-col xl:flex-row">
         <div className="flex-1 relative">
           <Image
-            alt={title}
+            alt={artist.title}
             src={
               shouldShowPortait(breakpoints)
-                ? imagePortrait.url
-                : imageLandscape.url
+                ? artist.imagePortrait.url
+                : artist.imageLandscape.url
             }
             layout="fill"
             objectFit="cover"
@@ -38,8 +41,8 @@ export default function ArtistPage({
           />
         </div>
         <div className="flex-1 px-8">
-          <HeadingHero text={title} />
-          <p className="">{description}</p>
+          <HeadingHero text={artist.title} />
+          <p className="">{artist.description}</p>
         </div>
       </div>
     </Layout>
@@ -47,7 +50,9 @@ export default function ArtistPage({
 }
 
 export async function getStaticProps({ params }) {
-  const res = (await getArtistWithSlug(params.slug)) ?? null;
+  console.log('params -->', params);
+  const res = (await getArtistWithSlug(params.slug)) ?? {};
+  console.log('slug ----->', params.slug, ', artist res -->', res);
   return {
     props: {
       artist: res,
@@ -57,6 +62,7 @@ export async function getStaticProps({ params }) {
 
 export async function getStaticPaths() {
   const slugs = await getAllArtistSlugs();
+  console.log('PATHS --> ', slugs?.map(({ slug }) => `/artists/${slug}`) ?? []);
   return {
     paths: slugs?.map(({ slug }) => `/artists/${slug}`) ?? [],
     fallback: true,
