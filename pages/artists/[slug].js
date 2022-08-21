@@ -13,6 +13,10 @@ const shouldShowPortait = (breakpoints) => {
     return !isMobile;
   }
 
+  if (isMobile) {
+    return false;
+  }
+
   return !!breakpoints['2xl'];
 };
 
@@ -28,7 +32,7 @@ export default function ArtistPage({ artist }) {
   return (
     <Layout title={artist.title} ogImage={artist.imageLandscape.url}>
       <div className="full-height flex flex-col xl:flex-row">
-        <div className="flex-1 relative">
+        <div className="flex-1 relative artist-page-image-wrap">
           <Image
             alt={artist.title}
             src={
