@@ -1,0 +1,5 @@
+CONTENTFUL_SPACE_ID=<contentful space id>
+CONTENTFUL_ACCESS_TOKEN=<delivery api access token>
+CONTENTFUL_PREVIEW_ACCESS_TOKEN=<preview api access token>
+CONTENTFUL_PREVIEW_SECRET=<whatever you want>
+CONTENTFUL_REVALIDATE_SECRET=<whatever you want>
