@@ -19,6 +19,7 @@ const shouldShowPortait = (breakpoints) => {
 // { title, description, imageLandscape, imagePortrait }
 export default function ArtistPage({ artist }) {
   const breakpoints = useDimensions();
+  console.log('artist ---> ', artist);
 
   if (!artist) {
     return null;
@@ -50,9 +51,7 @@ export default function ArtistPage({ artist }) {
 }
 
 export async function getStaticProps({ params }) {
-  console.log('params -->', params);
   const res = (await getArtistWithSlug(params.slug)) ?? {};
-  console.log('slug ----->', params.slug, ', artist res -->', res);
   return {
     props: {
       artist: res,
@@ -62,7 +61,10 @@ export async function getStaticProps({ params }) {
 
 export async function getStaticPaths() {
   const slugs = await getAllArtistSlugs();
-  console.log('PATHS --> ', slugs?.map(({ slug }) => `/artists/${slug}`) ?? []);
+  console.log(
+    'all paths ----> ',
+    slugs?.map(({ slug }) => `/artists/${slug}`)
+  );
   return {
     paths: slugs?.map(({ slug }) => `/artists/${slug}`) ?? [],
     fallback: true,

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 
 export default function useDimensions() {
   const [dimensions, setDimensions] = useState({
@@ -27,16 +27,10 @@ export default function useDimensions() {
     };
   }, []);
 
-  // return {
-  //   width: dimensions.w,
-  //   height: dimensions.h,
-  // };
-
   return {
     sm: dimensions.w <= 640,
     md: dimensions.w >= 641 && dimensions.w <= 768,
     lg: dimensions.w >= 769 && dimensions.w <= 1024,
-    // xl: dimensions.w >= 1025,
     xl: dimensions.w >= 1025 && dimensions.w <= 1280,
     '2xl': dimensions.w >= 1281,
   };

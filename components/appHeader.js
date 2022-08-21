@@ -7,9 +7,9 @@ function Header() {
       <div className="app-width h-16 flex-1 flex justify-between border-b border-musta md:px-10">
         <Link href="/">
           <a className="flex-1 flex justify-between hover:text-flow-yellow transition-all">
-            <h1 className="text-5xl font-title font-bold">WOLF FESTIVAL</h1>
-            <h1 className="text-5xl font-title font-bold">HELSINKI</h1>
-            <h1 className="text-5xl font-title font-bold">12.-14.8.2022</h1>
+            <h1 className="md:text-5xl font-title font-bold">WOLF FESTIVAL</h1>
+            <h1 className="md:text-5xl font-title font-bold">HELSINKI</h1>
+            <h1 className="md:text-5xl font-title font-bold">12.-14.8.2022</h1>
           </a>
         </Link>
       </div>
