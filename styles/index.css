@@ -1,0 +1,22 @@
+/* purgecss start ignore */
+@tailwind base;
+@tailwind components;
+/* purgecss end ignore */
+@tailwind utilities;
+
+.app-container {
+  position: relative;
+  width: 100%;
+  max-width: 120rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.full-height {
+  min-height: calc(100vh - 4rem);
+  border: 2px solid red;
+}
+
+.app-width {
+  max-width: 120rem;
+}
