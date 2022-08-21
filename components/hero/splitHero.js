@@ -9,7 +9,7 @@ function SplitHero({ title, image, to }) {
         <div className="h-44 md:h-96 flex items-center justify-center p-4">
           <Heading text={title} size="7xl" />
         </div>
-        <div className="relative h-96">
+        <div className="relative h-60 md:h-96">
           <Image alt={title} src={image.url} layout="fill" objectFit="cover" />
         </div>
       </article>
