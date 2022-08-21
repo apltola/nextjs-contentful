@@ -6,7 +6,7 @@ function SplitHero({ title, image, to }) {
   return (
     <Link href={to}>
       <article className="bg-white hover:bg-flow-yellow cursor-pointer">
-        <div className="h-96 flex items-center justify-center p-4">
+        <div className="h-44 md:h-96 flex items-center justify-center p-4">
           <Heading text={title} size="7xl" />
         </div>
         <div className="relative h-96">
