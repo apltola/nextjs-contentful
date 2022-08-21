@@ -20,8 +20,14 @@
   max-width: 120rem;
 }
 
-@media only screen and (max-width: 1280px) {
+@media only screen and (max-width: 768px) {
   .artist-page-image-wrap {
-    padding-top: 50%;
+    padding-top: 70%;
+  }
+}
+
+@media only screen and (min-width: 769px) and (max-width: 1280px) {
+  .artist-page-image-wrap {
+    padding-top: 30%;
   }
 }
